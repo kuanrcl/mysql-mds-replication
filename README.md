@@ -58,4 +58,6 @@ Run OLAP workloads on MySQL Database Cloud powered by Heatwave engine
 
 Sign Up for your Oracle Cloud Free Tier to [**Get Started!**](./Lab0/README.md)
 
+## Ready to go? Jump directly to the first Lab!
 
+[**Go to Lab1!**](./Lab1/README.md)
