@@ -82,22 +82,19 @@ Oracle Cloud Infrastructure Cloud (OCI) Shell is a web browser-based terminal ac
 
 ![](images/Lab2-10.png)
 
+- Once the private key gets saved to your local machine, take note of the download location and of the file name.
+
 ### **Step 2.11:**
-- Once the private key gets saved (as per picture below) to your local machine, take note of the download location and of the file name.
-
-![](images/Lab2-11.png)
-
-### **Step 2.12:**
 - Scroll down and click on _**Show advanced options**_
 
 ![](images/Lab2-12.png)
 
-### **Step 2.13:**
+### **Step 2.12:**
 - In the _**Management**_ tab, select the _**Paste cloud-init script**_ radio button. The _**Cloud-init script**_ input box will appear as per below image
 
 ![](images/Lab2-13.png)
 
-### **Step 2.14:**
+### **Step 2.13:**
 - Paste-in the following script:
 ```
 #cloud-config
@@ -122,12 +119,41 @@ Once done, click _**Create**_
 
 ![](images/Lab2-14.png)
 
-### **Step 2.15:**
+_**Additional extra information (NOT needed for the scopes of this lab)**_ :
+As you might have realized, the cloud-init script which we are using, generates and runs a script from a base64 encoded string. This has been done in order to avoid issues which may occur when cloud-init processes special characters. For your reference, you can find the content of the script below:
+```
+sed -i s/SELINUX=enforcing/SELINUX=permissive/g /etc/sysconfig/selinux
+sed -i s/SELINUX=enforcing/SELINUX=permissive/g /etc/selinux/config
+systemctl stop firewalld
+systemctl disable firewalld
+wget https://dev.mysql.com/get/mysql80-community-release-el8-1.noarch.rpm
+yum localinstall -y --nogpgcheck mysql80-community-release-el8-1.noarch.rpm
+yum module -y --nogpgcheck disable mysql
+yum install -y --nogpgcheck mysql-community-client mysql-community-server mysql-shell
+systemctl start mysqld
+grep temporary /var/log/mysqld.log >> password.txt
+sed -i 's/^.*: //g' password.txt
+mysql --user=root --password=`cat password.txt` --connect-expired-password  -e "set password = 'Oracle.123';"
+mysql -uroot -pOracle.123 -e "create user 'root'@'%' identified by 'Oracle.123';"
+mysql -uroot -pOracle.123 -e "grant all privileges on *.* to 'root'@'%' with grant option;"
+systemctl stop mysqld
+echo "innodb_buffer_pool_size=4G" >> /etc/my.cnf
+echo "log-bin" >> /etc/my.cnf
+echo "gtid_mode=on" >> /etc/my.cnf
+echo "enforce_gtid_consistency" >> /etc/my.cnf
+systemctl start mysqld
+wget https://downloads.mysql.com/docs/world_x-db.tar.gz
+tar -xf world_x-db.tar.gz --strip-components=1
+mysql -uroot -pOracle.123 -h127.0.0.1 -P3306 < world_x.sql
+reboot
+```
+
+### **Step 2.14:**
 - The instance will enter _**Provisioning**_ state.
 
 ![](images/Lab2-15.png)
 
-### **Step 2.16:**
+### **Step 2.15:**
 - Once provisioning is finished, the instance will enter the _**Running**_ state. It should take about a minute or so.
 Once the instance is _**Running**_, take note of the _**Public IP Address**_
 
@@ -135,30 +161,32 @@ Once the instance is _**Running**_, take note of the _**Public IP Address**_
 
 _**PLEASE NOTE**_: As soon as the instance enters the running state, the cloud-init script is triggered and requires some other minutes to complete. In the meanwhile, we will start connecting to the instance.
 
-### **Step 2.17:**
+### **Step 2.16:**
 - We will now access the newly created instance using cloud shell.
 Click on the _**Cloud Shell**_ icon in the top right part of the screen.
 
 ![](images/Lab2-17.png)
 
-### **Step 2.18:**
+### **Step 2.17:**
 - Once the Cloud shell comes up, familiarize with the commands. 
 On the right part of top bar, you have the buttons to _**reduce to icon**_, _**exapnd**_ and _**close**_ the cloud shell.
 On the left part of thop bar, you have the _**cloud shell menu**_. Feel free to adjust the _**font size**_ as per picture below.
 
 ![](images/Lab2-18.png)
 
-### **Step 2.19:**
+### **Step 2.18:**
 - Take the previously saved private key file from your local machine, drag and drop it into the cloud shell, as shown in the picture below.
 
 ![](images/Lab2-19.png)
 
-### **Step 2.20:**
+### **Step 2.19:**
 - Once the upload completes, you will be notified, as per picture below
 
 ![](images/Lab2-20.png)
 
-### **Step 2.21:**
+### **Step 2.20:**
+_**PLEASE NOTE**_: In this step we will connect  to the MySQL Router instance. Prior to executing this step, allow it an extra couple of minutes for the cloud-init script to complete its execution and for the instance to reboot.
+
 - In order to connect to the Replication Source Instance using the _**Public IP Address**_, execute the following commands:
 ```
 mv ssh-*.key replication-source.key
@@ -173,7 +201,7 @@ mysql -uroot -pOracle.123
 
 ![](images/Lab2-21.png)
 
-### **Step 2.22:**
+### **Step 2.21:**
 - Once connected to the MySQL server, execute the following command  to list the existing databases
 ```
 show databases;
@@ -182,7 +210,7 @@ You will notice a schema called _**world_x**_
 
 ![](images/Lab2-22.png)
 
-### **Step 2.23:**
+### **Step 2.22:**
 - Type _**exit**_ to close the MySQL session and again _**exit**_ to close the ssh session.
 - Reduce the Cloud Shell to icon and proceed to the following lab.
 
