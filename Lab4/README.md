@@ -77,22 +77,19 @@ The steps you will execute will allow you to deploy and configure MySQL Router a
 
 ![](images/Lab4-10.png)
 
+- Once the private key gets saved to your local machine, take note of the download location and of the file name.
+
 ### **Step 4.11:**
-- Once the private key gets saved (as per picture below) to your local machine, take note of the download location and of the file name.
-
-![](images/Lab4-11.png)
-
-### **Step 4.12:**
 - Scroll down and after the _**Boot Volume**_ section, click on _**Show advanced options**_
 
 ![](images/Lab4-12.png)
 
-### **Step 4.13:**
+### **Step 4.12:**
 - In the _**Management**_ tab, select the _**Paste cloud-init script**_ radio button. The _**Cloud-init script**_ input box will appear as per below image.
 
 ![](images/Lab4-13.png)
 
-### **Step 4.14:**
+### **Step 4.13:**
 - Paste-in the following script:
 ```
 #cloud-config
@@ -117,23 +114,44 @@ _**MAKE SURE TO COPY AND PASTE THE SCRIPT CORRECTLY!!**_
 
 ![](images/Lab4-14.png)
 
-### **Step 4.15:**
+_**Additional extra information (NOT needed for the scopes of this lab)**_ :
+As you might have realized, the cloud-init script which we are using, generates and runs a script from a base64 encoded string. This has been done in order to avoid issues which may occur when cloud-init processes special characters. For your reference, you can find the content of the script below:
+```
+sed -i s/SELINUX=enforcing/SELINUX=permissive/g /etc/sysconfig/selinux
+sed -i s/SELINUX=enforcing/SELINUX=permissive/g /etc/selinux/config
+systemctl stop firewalld
+systemctl disable firewalld
+wget https://dev.mysql.com/get/mysql80-community-release-el8-1.noarch.rpm
+yum localinstall -y --nogpgcheck mysql80-community-release-el8-1.noarch.rpm
+yum module -y --nogpgcheck disable mysql
+yum install -y --nogpgcheck mysql-shell mysql-router-community 
+echo "" >> /etc/mysqlrouter/mysqlrouter.conf
+echo "[routing:primary]" >> /etc/mysqlrouter/mysqlrouter.conf
+echo "bind_address = 0.0.0.0" >> /etc/mysqlrouter/mysqlrouter.conf
+echo "bind_port = 3306" >> /etc/mysqlrouter/mysqlrouter.conf
+echo "destinations = SOURCE_PUBLIC_IP:3306" >> /etc/mysqlrouter/mysqlrouter.conf
+echo "routing_strategy = first-available" >> /etc/mysqlrouter/mysqlrouter.conf
+```
+
+### **Step 4.14:**
 - The instance will enter _**Provisioning**_ state.
 
 ![](images/Lab4-15.png)
 
-### **Step 4.16:**
+### **Step 4.15:**
 - Once provisioning is finished, the instance will enter the _**Running**_ state. It should take about a minute or so.
 Once the instance is _**Running**_, take note of the _**Public IP Address**_ for ssh connection and of the _**Internal FQDN**_ for setting up the _**Replication Channel**_ later on.
 
 ![](images/Lab4-16.png)
 
-### **Step 4.17:**
+### **Step 4.16:**
 - Go back to the _**Cloud Shell**_, take the previously saved private key file from your local machine, drag and drop it into the cloud shell, as shown in the picture below.
 
 ![](images/Lab4-17.png)
 
-### **Step 4.18:**
+### **Step 4.17:**
+_**PLEASE NOTE**_: In this step we will connect  to the MySQL Router instance. Prior to executing this step, allow it an extra couple of minutes  for the cloud-init script to complete its execution and for the instance to reboot.
+
 - In order to connect to the MySQL Router Instance using the previously noted _**Public IP Address**_, execute the following commands:
 ```
 mv ssh-*.key router.key
@@ -144,15 +162,17 @@ ssh -i router.key opc@<router-instance-public-ip>
 
 ![](images/Lab4-18.png)
 
-### **Step 4.19:**
-- Once Once successfully connected to the instance where the MySQL Router is installed, we need to change the MySQL router configuration to point to the _**Replication Source**_, using the _**Replication Source Public IP Address**_. In a normal scenario, you should mofify the MySQL router configuration file, located under _**/etc/mysqlrouter/mysqlrouter.conf**_
+### **Step 4.18:**
+- Once successfully connected to the instance where the MySQL Router is installed, we need to change the MySQL router configuration to point to the _**Replication Source**_, using the _**MySQL Replication Source Public IP Address**_. In a normal scenario, you should modify the MySQL router configuration file, located under _**/etc/mysqlrouter/mysqlrouter.conf**_
 
-- To speed things up, the MySQL Router installed on this instance has been pre-configured, and you need just to update the place holder already present in the configuration for the _**Replication Source Public IP Address**_, running the following command:
+- To speed things up, the MySQL Router installed on this instance has been pre-configured, and you need just to update the place holder already present in the configuration for the _**MySQL Replication Source Public IP Address**_, running the following command:
 ```
-sudo sed -i s/SOURCE_PUBLIC_IP/put-here-source-public-ip/g /etc/mysqlrouter/mysqlrouter.conf
+sudo sed -i s/SOURCE_PUBLIC_IP/<put-here-source-public-ip>/g /etc/mysqlrouter/mysqlrouter.conf
 ```
+_**PLEASE NOTE**_: After you modify the command above inserting the _**MySQL Replication Source Public IP Address**_, your command will look as per following example:
+_**sudo sed -i s/SOURCE_PUBLIC_IP/140.238.220.163/g /etc/mysqlrouter/mysqlrouter.conf**_
 
-- Afterwards, check the content of the configuration file to verify that the variable _**destinations**_ is equal to the _**Public IP Address of the Replication Source**_.
+- Once done, check the content of the configuration file to verify that the variable _**destinations**_ is equal to the _**Public IP Address of the Replication Source**_.
 To do it, execute:
 ```
 cat /etc/mysqlrouter/mysqlrouter.conf
@@ -160,7 +180,7 @@ cat /etc/mysqlrouter/mysqlrouter.conf
 
 ![](images/Lab4-19.png)
 
-### **Step 4.20:**
+### **Step 4.19:**
 - It is now time to start the MySQL Router and to check the connection to the MySQL Replication Source.
 To do it execute:
 ```
@@ -173,7 +193,7 @@ select @@hostname;
 
 ![](images/Lab4-20.png)
 
-### **Step 4.21:**
+### **Step 4.20:**
 - Exit the MySQL Shell, executing the following command:
 ```
 \exit
