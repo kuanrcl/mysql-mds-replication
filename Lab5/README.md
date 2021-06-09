@@ -41,7 +41,12 @@ In OCI, Inbound Replication requires a replication channel configured in MySQL D
 ### **Step 5.4:**
 - The _**Source Connection**_ section allows you to configure the parameters to set the replication with the MySQL Source Instance.
 
-- Enter the following values: 
+- _**PLEASE NOTE**_: Since the MySQL Database Service DB System _**DOES NOT**_ have direct access to the internet, as mentioned in the introduction, you will be using the _**MySQL Router Internal FQDN**_ as _**Source Hostname**_.
+You can retrieve it from the MySQL Router Compute Instance details page (_**Main Menu >> Compute >> Instances >> click on the MySQL Router instance**_), as per below picture:
+
+![](images/Lab5-4a.png)
+
+- Once you have retrieved the _**MySQL Router Internal FQDN**_, enter the following values in the _**Source Connection**_ input fields (as in the below picture): 
 	Hostname: _**MySQL Router Internal FQDN**_ 
 	Port: _**3306**_
 	Username: _**root**_
@@ -50,7 +55,7 @@ In OCI, Inbound Replication requires a replication channel configured in MySQL D
 
 - Under the _**SSL Mode**_ subsection, select the box _**Disabled (DISABLED)**_
 
-![](images/Lab5-4.png)
+![](images/Lab5-4b.png)
 
 ### **Step 5.5:**
 - The _**Target**_ section allows you to choose the _**MySQL Database Service DB System**_ which you will select as _**Replica**_
@@ -64,7 +69,7 @@ In OCI, Inbound Replication requires a replication channel configured in MySQL D
 ![](images/Lab5-5.png)
 
 ### **Step 5.6:**
-- In the _**Select a DB System Window**_, select the _**mds-replication-hol-replica**_ which you have previously created and then click _**Select DB System**_.
+- In the window _**Select a DB System**_, select the _**mds-replication-hol-replica**_ which you have previously created and then click the button _**Select DB System**_.
 
 ![](images/Lab5-6.png)
 
@@ -78,23 +83,36 @@ In OCI, Inbound Replication requires a replication channel configured in MySQL D
 
 ![](images/Lab5-8.png)
 
+- _**Congratulations!! You managed to succesfully set up a replicated environment using MySQL Database Service!!**_
+In the next few steps, you will verify that everyhing works as expected and observe replication in action!!
+
 ### **Step 5.9:**
 - Go back to the Cloud Shell, which should still be connected the _**mysql-replication-router**_ instance
 - From the _**mysql-replication-router**_ instance you will now access the _**MDS Replica Instance**_ over the _**Private IP Address**_, to check that the content from the _**Replication Source**_ has been correctly replicated.
-To do so, execute:
+
+_**PLEASE NOTE**_: In order to connect to _**MDS**_ we will use its _**Private IP**_. You can retrieve the _**MDS  Private IP Address**_ from the MDS DB System details page (_**Main Menu >> Compute >> Instances >> click on the MDS DB System**_), as per below picture:
+
+![](images/Lab5-9a.png)
+
+To connect to the _**MDS Replica Instance**_ and list existing schemas, execute the following commands:
 ```
 mysqlsh --uri admin:Oracle.123@<mds-private-ip>:3306 --sql
 show databases;
 ```
 - You should see the _**world_x**_ schema, as in the picture below.
 
-![](images/Lab5-9.png)
+![](images/Lab5-9b.png)
 
 - _**Optional**_: Execute the command
 ```
 SHOW REPLICA STATUS\G
 ```
-and have a look at the output.
+The output should look as follows:
+
+![](images/Lab5-9c.png)
+
+_**Additional Explanation**_: If replication is working correctly you will see the _**Slave/Replica_IO_State**_ field marked as _**Waiting for master to send event**_ and the _**Last_Error**_ field marked empty.
+In case of errors in the replication, the _**Last_Error**_ field will contain an explanation of the error, which is going to be useful for troubleshooting.
 
 ### **Step 5.10:**
 - Exit the MySQL Shell connection to _**MDS**_ typing:
@@ -104,7 +122,12 @@ and have a look at the output.
 
 ### **Step 5.11:**
 - You will now connect to the _**MySQL Replication Source**_ over the _**Public IP Addrees**_ and create a dummy database.
-To do so, execute the commands:
+
+_**PLEASE NOTE**_: In order to connect to_**MySQL Replication Source**_ we will use its _**Public IP Addrees**_. You can retrieve the _**Replication Source  Public IP Address**_ from the Replication Source Compute Instance details page (_**Main Menu >> Database >> MySQL >> click on the Replication Source instance**_), as per below picture:
+
+![](images/Lab5-11.png)
+
+To connect to the _**MySQL Replication Source**_ and create a new schema, execute the commands:
 ```
 mysqlsh --uri root:Oracle.123@<source-public-ip>:3306 --sql
 create database test;
@@ -112,7 +135,13 @@ create database test;
 ```
 
 ### **Step 5.12:**
-- Time to see replication in action! Connect to _**MDS Replica Instance**_ over the _**Private IP Address**_ and check again the list of schemas:
+- Time to see replication in action! Connect to _**MDS Replica Instance**_ over the _**Private IP Address**_ and check again the list of schemas.
+
+_**PLEASE NOTE**_: In order to connect to _**MDS**_ we will use its _**Private IP**_. You can retrieve the _**MDS  Private IP Address**_ from the MDS DB System details page (_**Main Menu >> Compute >> Instances >> click on the MDS DB System**_), as per below picture:
+
+![](images/Lab5-9a.png)
+
+To connect again to _**MDS Replica Instance**_ and check if the previously created schema has replicated successfully, execute the following commands:
 ```
 mysqlsh --uri root:Oracle.123@<mds-private-ip>:3306 --sql
 show databases;
