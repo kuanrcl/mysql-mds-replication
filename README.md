@@ -1,14 +1,28 @@
-# Inbound replication from MySQL Database to MySQL Database Service in OCI
+# Inbound replication from MySQL Database to MySQL Database Service (MDS) in OCI
 
 ![Oracle Workshop](images/banner.png)
 
 ## Description
 
-Access and navigate Oracle cloud dashboard
-Create an Oracle Compute Instance and install MySQL Database
-Create MySQL Database Cloud Instance
-Replicate MySQL Database from the Compute instance into MySQL Database Cloud
-Run OLAP workloads on MySQL Database Cloud powered by Heatwave engine
+The purpose of this Hands-on Labs it is to set up a MySQL Database Service environment which will replicate from an on-premise MySQL environment using the MDS Inbound Replication feature.
+Since we do not have at hand a real on-premise MySQL environment to serve as Replication Source, we will simulate one, deploying MySQL on a Compute Instance reachable via Public IP Address, so that every connection will traverse the public internet.
+Additionally, since MDS is not equipped with access to the public internet, we will deploy MySQL Router on a Compute Instance located on the same subnet where MDS is located. 
+This MySQL Router will act as a reverse proxy: MDS will connect to MySQL Router over an internal hostname, and MySQL Router will connect to the MySQL Replication Source, at a Public IP Address over the Public Internet.
+
+From an architectural perspective, the deployment which you will achieve looks as per below image:
+
+![](images/architecture.png)
+
+By executing the Labs, you will learn how to:
+
+- Access and navigate Oracle cloud dashboard
+- Create a compartment and VCN with Public and Private Subnets
+- Setup Security List Ingress Rules for a VCN Subnet.
+- Create an Oracle Compute Instance and install MySQL Database to act as Replication Source
+- Create MySQL Database Service Instance
+- Create and Oracle Compute Instance and Install MySQL Router to act as a reverse proxy for replication
+- Create a replication channel to replicate, via the MySQL Router Instance, from MySQL Database on the Compute instance Replication Source into MySQL Database Cloud
+- Verify Replication
 
 ## Who Should Do This Workshop
 - You want to **build a hybrid cloud** for your existing MySQL infrastructure
