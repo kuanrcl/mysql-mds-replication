@@ -81,6 +81,7 @@ The steps you will execute will allow you to deploy and configure MySQL Router a
 ![](images/Lab4-10.png)
 
 - Once the private key gets saved to your local machine, take note of the download location and of the file name.
+
 _**PLEASE NOTE:**_ OCI generates for your private keys naming it after the date of creation (example: ssh-key-YYYY-MM-DD.key). If you generate two or more private keys in the same day, your operating system might modify the file name upon saving. For example, the current private key which you are saving might follow a naming convention of this kind: ssh-key-YYYY-MM-DD (1).key
 Therefore be careful and pay attention to the correct file name.
 
