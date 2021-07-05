@@ -30,7 +30,7 @@ A security list acts as a virtual firewall for an instance, with ingress and egr
 ![](images/Lab1-1.png)
 
 ### **Step 1.2:**
-  Once the menu appears select _**Governance and Administration >> Identity**_
+  Once the menu appears select _**Identity and Security >> Compartments**_
 ![](images/Lab1-2.png)
 
 ### **Step 1.3:**
