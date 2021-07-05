@@ -42,6 +42,7 @@ The steps you will execute will allow you to deploy and configure MySQL Router a
 
 ### **Step 4.4:**
 - In the _**Image and shape**_ section, you can define the operating system image to be used and the resources to be assigned.
+- If the section is collapsed, click on _**Edit**_ to expand it.
 - In the _**Image**_ subsection click on the _**Change Image**_ button.
 
 ![](images/Lab4-4.png)
