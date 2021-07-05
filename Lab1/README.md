@@ -77,7 +77,7 @@ A security list acts as a virtual firewall for an instance, with ingress and egr
 ![](images/Lab1-11.png)
 
 ### **Step 1.12:**
-  Once the VCN is created you are taken to the related page as in the picture below. Click on _**Public Subnet-mds-replication-hol-vcn**_
+  Once the VCN is created, click on  _**View Virtual Cloud Network**_ and you will be taken to the related page as in the picture below. Click on _**Public Subnet-mds-replication-hol-vcn**_
 
 ![](images/Lab1-12.png)
 
