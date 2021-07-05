@@ -90,7 +90,7 @@ In the next few steps, you will verify that everyhing works as expected and obse
 - Go back to the Cloud Shell, which should still be connected the _**mysql-replication-router**_ instance
 - From the _**mysql-replication-router**_ instance you will now access the _**MDS Replica Instance**_ over the _**Private IP Address**_, to check that the content from the _**Replication Source**_ has been correctly replicated.
 
-_**PLEASE NOTE**_: In order to connect to _**MDS**_ we will use its _**Private IP**_. You can retrieve the _**MDS  Private IP Address**_ from the MDS DB System details page (_**Main Menu >> Compute >> Instances >> click on the MDS DB System**_), as per below picture:
+_**PLEASE NOTE**_: In order to connect to _**MDS**_ we will use its _**Private IP**_. You can retrieve the _**MDS  Private IP Address**_ from the MDS DB System details page (_**Main Menu >> Databases >> (MySQL) DB Systems >> click on the MDS DB System**_), as per below picture:
 
 ![](images/Lab5-9a.png)
 
@@ -123,7 +123,7 @@ In case of errors in the replication, the _**Last_Error**_ field will contain an
 ### **Step 5.11:**
 - You will now connect to the _**MySQL Replication Source**_ over the _**Public IP Addrees**_ and create a dummy database.
 
-_**PLEASE NOTE**_: In order to connect to_**MySQL Replication Source**_ we will use its _**Public IP Addrees**_. You can retrieve the _**Replication Source  Public IP Address**_ from the Replication Source Compute Instance details page (_**Main Menu >> Database >> MySQL >> click on the Replication Source instance**_), as per below picture:
+_**PLEASE NOTE**_: In order to connect to_**MySQL Replication Source**_ we will use its _**Public IP Addrees**_. You can retrieve the _**Replication Source  Public IP Address**_ from the Replication Source Compute Instance details page (_**Main Menu >> Database >> (MySQL) DB Systems>> click on the Replication Source instance**_), as per below picture:
 
 ![](images/Lab5-11.png)
 
