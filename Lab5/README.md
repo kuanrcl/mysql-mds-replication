@@ -47,11 +47,11 @@ You can retrieve it from the MySQL Router Compute Instance details page (_**Main
 ![](images/Lab5-4a.png)
 
 - Once you have retrieved the _**MySQL Router Internal FQDN**_, enter the following values in the _**Source Connection**_ input fields (as in the below picture): 
-	Hostname: _**MySQL Router Internal FQDN**_ 
-	Port: _**3306**_
-	Username: _**root**_
-	Password: _**Oracle.123**_
-	Confirm Password: _**Oralce.123**_
+	- Hostname: _**MySQL Router Internal FQDN**_ 
+	- Port: _**3306**_
+	- Username: _**root**_
+	- Password: _**Oracle.123**_
+	- Confirm Password: _**Oralce.123**_
 
 - Under the _**SSL Mode**_ subsection, select the box _**Disabled (DISABLED)**_
 
