@@ -1,7 +1,5 @@
 # Get Started: Sign Up for your Oracle Cloud Free Tier
 
-![Oracle Workshop](images/banner.png)
-
 ![Oracle Cloud Free Tier Banner](images/oracle_cloud_free_tier0.png)
 
 During this short Lab, we will **Create**, **Sign In** and **Walk Through** the steps of setting up an **Oracle Cloud Free Tier** account.
