@@ -192,7 +192,7 @@ On the left part of thop bar, you have the _**cloud shell menu**_. Feel free to 
 ![](images/Lab2-20.png)
 
 ### **Step 2.20:**
-_**PLEASE NOTE**_: In this step we will connect  to the MySQL Router instance. Prior to executing this step, allow it an extra couple of minutes for the cloud-init script to complete its execution and for the instance to reboot.
+_**PLEASE NOTE**_: In this step we will connect  to the MySQL Replication Source instance. Prior to executing this step, allow it an extra couple of minutes for the cloud-init script to complete its execution and for the instance to reboot.
 
 - In order to connect to the Replication Source Instance using the _**Public IP Address**_, execute the following commands:
 ```
