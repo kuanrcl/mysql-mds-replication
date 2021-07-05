@@ -68,7 +68,9 @@ The steps you will execute will allow you to deploy and configure MySQL Router a
 ![](images/Lab4-8.png)
 
 ### **Step 4.9:**
-- In the _**Networking**_ section, make sure you select the _**mds-replication-hol-vcn**_ in the VCN drop down selector and the _**Public Subnet-mds-replication-hol-vcn (Regional)**_ in the subnet drop down selector.
+- Go the _**Networking**_ section.
+- If the section is collapsed, click _**Edit**_ to expand it.
+- Make sure you select the _**mds-replication-hol-vcn**_ in the VCN drop down selector and the _**Public Subnet-mds-replication-hol-vcn (Regional)**_ in the subnet drop down selector.
 - Make sure that the _**Assign a public IPv4 address**_ radio button is selected.
 
 ![](images/Lab4-9.png)
