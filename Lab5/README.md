@@ -127,9 +127,19 @@ _**PLEASE NOTE**_: In order to connect to _**MySQL Replication Source**_ we will
 
 ![](images/Lab5-11.png)
 
-To connect to the _**MySQL Replication Source**_ and create a new schema, execute the commands:
+- To connect to the _**MySQL Replication Source**_ and create a new schema, execute the commands:
 ```
 mysqlsh --uri root:Oracle.123@<source-public-ip>:3306 --sql
+```
+- After you have connected to the _**MySQL Replication Source**_, execute the following command:
+```
+select @@hostname;
+```
+...and make sure that the resulting hostname is _**mysql-replication-source**_
+This additional check is done in order to make you sure you are connected to the right host, since we are about to write data. Writing data by mistake into the replication source would cause replication to break!
+
+- Once you have checked that you are connected to the right host, execute the following commands:
+```
 create database test;
 \exit
 ```
