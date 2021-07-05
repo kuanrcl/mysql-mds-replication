@@ -147,6 +147,7 @@ tar -xf world_x-db.tar.gz --strip-components=1
 mysql -uroot -pOracle.123 -h127.0.0.1 -P3306 < world_x.sql
 reboot
 ```
+**PLEASE NOTE:** This is a lab environment! We are showing you how to disable firewalld and selinux JUST for simplicity!! You are not intended ever to deploy this kind of configuration on a production environment since it may lead to serious security issues!!
 
 ### **Step 2.14:**
 - The instance will enter _**Provisioning**_ state.
