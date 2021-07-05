@@ -34,7 +34,7 @@ A security list acts as a virtual firewall for an instance, with ingress and egr
 ![](images/Lab1-2.png)
 
 ### **Step 1.3:**
-  From the left menu select _**Compartments**_ and then click on _**Create Compartment**_
+  From the left menu check that _**Compartments**_ is selected, and then click on _**Create Compartment**_
 ![](images/Lab1-3.png)
 
 ### **Step 1.4:**
