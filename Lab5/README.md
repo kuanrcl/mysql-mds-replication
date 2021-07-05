@@ -123,7 +123,7 @@ In case of errors in the replication, the _**Last_Error**_ field will contain an
 ### **Step 5.11:**
 - You will now connect to the _**MySQL Replication Source**_ over the _**Public IP Addrees**_ and create a dummy database.
 
-_**PLEASE NOTE**_: In order to connect to_**MySQL Replication Source**_ we will use its _**Public IP Addrees**_. You can retrieve the _**Replication Source  Public IP Address**_ from the Replication Source Compute Instance details page (_**Main Menu >> Database >> (MySQL) DB Systems>> click on the Replication Source instance**_), as per below picture:
+_**PLEASE NOTE**_: In order to connect to _**MySQL Replication Source**_ we will use its _**Public IP Addrees**_. You can retrieve the _**Replication Source  Public IP Address**_ from the Replication Source Compute Instance details page (_**Main Menu >> Database >> (MySQL) DB Systems>> click on the Replication Source instance**_), as per below picture:
 
 ![](images/Lab5-11.png)
 
