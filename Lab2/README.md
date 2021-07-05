@@ -137,7 +137,7 @@ yum localinstall -y --nogpgcheck mysql80-community-release-el8-1.noarch.rpm
 yum module -y --nogpgcheck disable mysql
 yum install -y --nogpgcheck mysql-community-client mysql-community-server mysql-shell
 systemctl start mysqld
-grep temporary /var/log/mysqld.log >> password.txt
+grep 'temporary password' /var/log/mysqld.log >> password.txt
 sed -i 's/^.*: //g' password.txt
 mysql --user=root --password=`cat password.txt` --connect-expired-password  -e "set password = 'Oracle.123';"
 mysql -uroot -pOracle.123 -e "create user 'root'@'%' identified by 'Oracle.123';"
