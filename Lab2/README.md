@@ -47,7 +47,7 @@ Oracle Cloud Infrastructure Cloud (OCI) Shell is a web browser-based terminal ac
 
 ### **Step 2.4:**
 - In the _**Image and shape**_ section, you can define the operating system image to be used and the resources to be assigned.
-- Click on _**Edit**_ to expand the related section
+- If the section is collapes, click on _**Edit**_ to expand it.
 
 ![](images/Lab2-4a.png)
 
@@ -76,7 +76,9 @@ Oracle Cloud Infrastructure Cloud (OCI) Shell is a web browser-based terminal ac
 ![](images/Lab2-8.png)
 
 ### **Step 2.9:**
-- In the _**Networking**_ section, make sure you select the _**mds-replication-hol-vcn**_ in the VCN drop down selector and the _**Public Subnet-mds-replication-hol-vcn (Regional)**_ in the subnet drop down selector.
+- Go to the _**Networking**_ section
+- If the section is collapes, click on _**Edit**_ to expand it.
+- In the selector, make sure you select the _**mds-replication-hol-vcn**_ in the VCN drop down selector and the _**Public Subnet-mds-replication-hol-vcn (Regional)**_ in the subnet drop down selector.
 - Make sure that the _**Assign a public IPv4 address**_ radio button is selected.
 
 ![](images/Lab2-9.png)
