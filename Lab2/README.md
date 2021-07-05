@@ -48,6 +48,9 @@ Oracle Cloud Infrastructure Cloud (OCI) Shell is a web browser-based terminal ac
 ### **Step 2.4:**
 - In the _**Image and shape**_ section, you can define the operating system image to be used and the resources to be assigned.
 - Click on _**Edit**_ to expand the related section
+
+![](images/Lab2-4a.png)
+
 - In the _**Image**_ subsection click on the _**Change Image**_ button.
 
 ![](images/Lab2-4.png)
