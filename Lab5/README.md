@@ -135,7 +135,7 @@ mysqlsh --uri root:Oracle.123@<source-public-ip>:3306 --sql
 ```
 select @@hostname;
 ```
-...and make sure that the resulting hostname is _**mysql-replication-source**_
+...and make sure that the resulting hostname is _**mysql-replication-source**_.
 This additional check is done in order to make you sure you are connected to the right host, since we are about to write data. Writing data by mistake into the replication source would cause replication to break!
 
 - Once you have checked that you are connected to the right host, execute the following commands:
