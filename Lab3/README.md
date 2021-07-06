@@ -4,7 +4,7 @@
 
 ## Key Objectives:
 - Learn how to deploy and configure a Standalone MySQL Database Service.
-- Learn how to create the Administrator user for the MDS
+- Learn how to create the Administrator user for the MySQL Database Service.
 
 ## Introduction
 
