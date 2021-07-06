@@ -149,7 +149,7 @@ create database test;
 ### **Step 5.12:**
 - Time to see replication in action! Connect to _**MySQL Database Service Replica Instance**_ over the _**Private IP Address**_ and check again the list of schemas.
 
-_**PLEASE NOTE**_: In order to connect to _**MySQL Database Service**_ we will use its _**Private IP**_. You can retrieve the _**MySQL Database Service  Private IP Address**_ from the MDS DB System details page (_**Main Menu >> Compute >> Instances >> click on the MDS DB System**_), as per below picture:
+_**PLEASE NOTE**_: In order to connect to _**MySQL Database Service**_ we will use its _**Private IP**_. You can retrieve the _**MySQL Database Service  Private IP Address**_ from the MySQL Database Service DB System details page (_**Main Menu >> Compute >> Instances >> click on the MySQL Database Service DB System**_), as per below picture:
 
 ![](images/Lab5-9a.png)
 
