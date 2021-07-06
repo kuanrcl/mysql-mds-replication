@@ -4,10 +4,10 @@
 
 ## Description
 
-The purpose of this Hands-on Labs it is to set up a MySQL Database Service environment which will replicate from an on-premise MySQL environment using the MDS Inbound Replication feature.
+The purpose of this Hands-on Labs it is to set up a MySQL Database Service environment which will replicate from an on-premise MySQL environment using the MySQL Database Service Inbound Replication feature.
 Since we do not have at hand a real on-premise MySQL environment to serve as Replication Source, we will simulate one, deploying MySQL on a Compute Instance reachable via Public IP Address, so that every connection will traverse the public internet.
-Additionally, since MDS is not equipped with access to the public internet, we will deploy MySQL Router on a Compute Instance located on the same subnet where MDS is located. 
-This MySQL Router will act as a reverse proxy: MDS will connect to MySQL Router over an internal hostname, and MySQL Router will connect to the MySQL Replication Source, at a Public IP Address over the Public Internet.
+Additionally, since MySQL Database Service is not equipped with access to the public internet, we will deploy MySQL Router on a Compute Instance located on the same subnet where MDS is located. 
+This MySQL Router will act as a reverse proxy: MySQL Database Service will connect to MySQL Router over an internal hostname, and MySQL Router will connect to the MySQL Replication Source, at a Public IP Address over the Public Internet.
 
 From an architectural perspective, the deployment which you will achieve looks as per below image:
 
@@ -53,9 +53,9 @@ By executing the Labs, you will learn how to:
 [Lab3: Create MySQL DB System (MDS) to use as Replica](Lab3/README.md)
 
 - Learn how to deploy and configure a Standalone MySQL Database Service.
-- Learn how to create the Administrator user for the MDS
+- Learn how to create the Administrator user for the MySQL Database Service
 
-[Lab4: Create a MySQL Router Instance to connect MDS with the Replication Source](Lab4/README.md)
+[Lab4: Create a MySQL Router Instance to connect MySQL Database Service with the Replication Source](Lab4/README.md)
 
 - Learn how to create a compute instance in a specific compartment
 - Learn how to use Cloud Shell to connect to a compute instance via ssh
@@ -63,7 +63,7 @@ By executing the Labs, you will learn how to:
 
 [Lab5: Create the Replication Channel](Lab5/README.md)
 
-- Learn how to create an MDS Replication Channel in OCI to use inbound replication
+- Learn how to create an MySQL Database Service Replication Channel in OCI to use inbound replication
 - Learn how to check the status of the replication
 
 ---
