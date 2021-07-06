@@ -196,7 +196,7 @@ _**PLEASE NOTE**_: In this step we will connect  to the MySQL Replication Source
 
 - In order to connect to the Replication Source Instance using the _**Public IP Address**_, execute the following steps:
 
-a - Rename the private key file and assign the privileges required by OCI
+a - Rename the recently transferred private key file and assign the privileges required by OCI
 ```
 mv ssh-*.key replication-source.key
 chmod 600 replication-source.key
