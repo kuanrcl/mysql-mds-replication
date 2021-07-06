@@ -159,10 +159,15 @@ Once the instance is _**Running**_, take note of the _**Public IP Address**_ for
 ### **Step 4.17:**
 _**PLEASE NOTE**_: In this step we will connect  to the MySQL Router instance. Prior to executing this step, allow it an extra couple of minutes  for the cloud-init script to complete its execution and for the instance to reboot.
 
-- In order to connect to the MySQL Router Instance using the previously noted _**Public IP Address**_, execute the following commands:
+- In order to connect to the MySQL Router Instance using the previously noted _**Public IP Address**_, execute the following steps:
+
+a - Rename the recently transferred private key file and assign the privileges required by OCI
 ```
 mv ssh-*.key router.key
 chmod 600 router.key
+```
+b - Connect to the newly created _**MySQL Router**_ instance over ssh, replacing the  _**Public IP Address**_ after the "@":
+```
 ssh -i router.key opc@<router-instance-public-ip>
 ```
 - If prompted to accept fingerprints, enter _**yes**_
