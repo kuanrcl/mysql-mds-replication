@@ -1,4 +1,4 @@
-# Lab 4: Create a MySQL Router Instance to connect MDS with the Replication Source
+# Lab 4: Create a MySQL Router Instance to connect MySQL Database Service with the Replication Source
 
 ![](images/Lab4-0.png)
 
