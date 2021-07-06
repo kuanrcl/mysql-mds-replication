@@ -179,7 +179,6 @@ c - If prompted to accept fingerprints, enter _**yes**_
 
 - To speed things up, the MySQL Router installed on this instance has been pre-configured, and you need just to update the place holder already present in the configuration for the _**MySQL Replication Source Public IP Address**_, running the following command:
 ```
-sudo sed -i s/SOURCE_PUBLIC_IP/<put-here-source-public-ip>/g /etc/mysqlrouter/mysqlrouter.conf
 sudo sed -i 's/destinations =.*/destinations = <put-here-public-ip-of-mysql-replication-source>/g' /etc/mysqlrouter/mysqlrouter.conf
 ```
 _**Where do I get the MySQL Replication Source Public IP?**_
@@ -202,10 +201,16 @@ cat /etc/mysqlrouter/mysqlrouter.conf
 
 ### **Step 4.19:**
 - It is now time to start the MySQL Router and to check the connection to the MySQL Replication Source.
-To do it execute:
+To do so execute the following steps:
+
+a - Enable the mysqlrouter service to start on boot and start the mysqlrouter service
 ```
 sudo systemctl enable mysqlrouter
 sudo systemctl start mysqlrouter
+```
+
+b - Access the mysqlrouter and test the router to the _**MySQL Replication Source**_
+```
 mysqlsh --uri root:Oracle.123@127.0.0.1:3306 --sql
 select @@hostname;
 ```
