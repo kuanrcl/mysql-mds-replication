@@ -206,7 +206,8 @@ b - Connect to the newly created _**MySQL Replication Source**_ instance over ss
 ssh -i replication-source.key opc@<source-instance-public-ip>
 ```
 c - If prompted to accept fingerprints, enter _**yes**_
-4 - Once successfully connected to the replication source instance, execute the following command:
+
+d - Once successfully connected to the replication source instance, execute the following command:
 ```
 mysql -uroot -pOracle.123
 ```
