@@ -97,7 +97,7 @@ A security list acts as a virtual firewall for an instance, with ingress and egr
  Add the necessary rule to the default security list to enable traffic through MySQL Database Service port. 
 
 Insert the details as below:
-- Source CIDR:  _**0.0.0.0/0**_,
+- Source CIDR:  _**0.0.0.0/0**_
 - IP Protocol: _**TCP**_
 - Destination Port Range: _**3306,33060**_
 
