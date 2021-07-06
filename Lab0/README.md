@@ -1,4 +1,4 @@
-# Get Started: Sign Up for your Oracle Cloud Free Tier
+# Get Started: Register your Oracle Cloud Free Trial
 
 ![Oracle Cloud Free Tier Banner](images/oracle_cloud_free_tier0.png)
 
@@ -17,9 +17,9 @@ What's included with **Oracle Cloud Free Tier**?
 To learn more about **Oracle Cloud Always Free** and **Free Trial** account, check the following link:
 [https://www.oracle.com/cloud/free/#always-free](https://www.oracle.com/cloud/free/#always-free)
 
-As part of your sign up to this Lab, you will have been provided with a link to **Sign Up** to Oracle Cloud Free Tier. Please make sure you:
+As part of your registration to this Lab, you will have been provided with a link to **Sign Up** to Oracle Cloud Free Tier. Please make sure you:
 
-- Use the **following URL** - [>> Sign Up for Oracle Cloud <<](http://bit.ly/34TzwGf)
+- Use the **following URL** - [>> Register for Oracle Cloud <<](https://www.oracle.com/cloud/free/?source=:em:lw:rce:cpo:::RC_MSQL210518P00090)
 - Use a **personal email** address that you will use during all the workshop process.
 
 On the Sign Up page, select your **Country/Territory**, enter your **email address** and click "**Next**".
