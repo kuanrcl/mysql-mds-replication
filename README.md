@@ -20,7 +20,7 @@ By executing the Labs, you will learn how to:
 - Setup Security List Ingress Rules for a VCN Subnet.
 - Create an Oracle Compute Instance and install MySQL Database to act as Replication Source
 - Create MySQL Database Service Instance
-- Create and Oracle Compute Instance and Install MySQL Router to act as a reverse proxy for replication
+- Create an Oracle Compute Instance and Install MySQL Router to act as a reverse proxy for replication
 - Create a replication channel to replicate, via the MySQL Router Instance, from MySQL Database on the Compute instance Replication Source into MySQL Database Cloud
 - Verify Replication
 
