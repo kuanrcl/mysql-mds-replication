@@ -63,7 +63,7 @@ The steps you will execute will allow you to deploy and configure MySQL Router a
 ![](images/Lab4-7.png)
 
 ### **Step 4.8:**
-- In the _**Browse All Shapes**_ window, click on the _**AMD**_ box. Then, in the _**Number of CPU**_ input box enter _**2**_ and wait until the _**Amount of memory (GB)**_ input box gets automatically populated with the value _**32**_. Afterwards click on _**Select Shape**_
+- In the _**Browse All Shapes**_ window, click on the _**AMD**_ box. Then, under _**VM.Standard.E4.Flex**_,  in the _**Number of CPU**_ input box enter _**2**_ and wait until the _**Amount of memory (GB)**_ input box gets automatically populated with the value _**32**_. Afterwards click on _**Select Shape**_
 
 ![](images/Lab4-8.png)
 
