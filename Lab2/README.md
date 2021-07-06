@@ -194,14 +194,19 @@ On the left part of top bar, you have the _**cloud shell menu**_. Feel free to a
 ### **Step 2.20:**
 _**PLEASE NOTE**_: In this step we will connect  to the MySQL Replication Source instance. Prior to executing this step, allow it an extra couple of minutes for the cloud-init script to complete its execution and for the instance to reboot.
 
-- In order to connect to the Replication Source Instance using the _**Public IP Address**_, execute the following commands:
+- In order to connect to the Replication Source Instance using the _**Public IP Address**_, execute the following steps:
+
+1 - Rename the private key file and assign the privileges required by OCI
 ```
 mv ssh-*.key replication-source.key
 chmod 600 replication-source.key
+```
+2 - Connect to the _**MySQL Replication Source instance**_ over ssh, replacing the  _**Public IP Address**_ after the "@"
+```
 ssh -i replication-source.key opc@<source-instance-public-ip>
 ```
-- If prompted to accept fingerprints, enter _**yes**_
-- Once successfully connected to the replication source instance, execute the following command:
+3 - If prompted to accept fingerprints, enter _**yes**_
+4 - Once successfully connected to the replication source instance, execute the following command:
 ```
 mysql -uroot -pOracle.123
 ```
