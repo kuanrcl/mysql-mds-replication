@@ -57,6 +57,8 @@ You can retrieve it from the MySQL Router Compute Instance details page (_**Main
 
 ![](images/Lab5-4b.png)
 
+_**PLEASE NOTE**_: This is a Lab environment, therefore, for the sake of simplicity, we have disabled encryption in the replication channel. If you will be configuring MySQL Database Service replication channel on a real environment (production, test, dev... doesn't matter) you should _**ALWAYS**_ set _**SSL Mode**_ to _**REQUIRED (REQUIRED)**_.
+
 ### **Step 5.5:**
 - The _**Target**_ section allows you to choose the _**MySQL Database Service DB System**_ which you will select as _**Replica**_
 
