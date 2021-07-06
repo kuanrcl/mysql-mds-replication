@@ -170,7 +170,7 @@ b - Connect to the newly created _**MySQL Router**_ instance over ssh, replacing
 ```
 ssh -i router.key opc@<router-instance-public-ip>
 ```
-- If prompted to accept fingerprints, enter _**yes**_
+c - If prompted to accept fingerprints, enter _**yes**_
 
 ![](images/Lab4-18.png)
 
@@ -180,9 +180,17 @@ ssh -i router.key opc@<router-instance-public-ip>
 - To speed things up, the MySQL Router installed on this instance has been pre-configured, and you need just to update the place holder already present in the configuration for the _**MySQL Replication Source Public IP Address**_, running the following command:
 ```
 sudo sed -i s/SOURCE_PUBLIC_IP/<put-here-source-public-ip>/g /etc/mysqlrouter/mysqlrouter.conf
+sudo sed -i 's/destinations =.*/destinations = <put-here-public-ip-of-mysql-replication-source>/g' /etc/mysqlrouter/mysqlrouter.conf
 ```
+_**Where do I get the MySQL Replication Source Public IP?**_
+Go to: _**Main Menu >> Compute >> Instances >>**_ Click on _**mysql-replication-source >>**_ Check for _**Public IP**_ (as per picture below).
+
+![](images/Lab4-18b.png)
+
 _**PLEASE NOTE**_: After you modify the command above inserting the _**MySQL Replication Source Public IP Address**_, your command will look as per following example:
 _**sudo sed -i s/SOURCE_PUBLIC_IP/140.238.220.163/g /etc/mysqlrouter/mysqlrouter.conf**_
+
+
 
 - Once done, check the content of the configuration file to verify that the variable _**destinations**_ is equal to the _**Public IP Address of the Replication Source**_.
 To do it, execute:
