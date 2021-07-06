@@ -99,7 +99,7 @@ A security list acts as a virtual firewall for an instance, with ingress and egr
 Insert the details as below:
 - Source CIDR:  _**0.0.0.0/0**_,
 - IP Protocol: _**TCP**_
-- Destination Port Range: _**3306, 33060**_
+- Destination Port Range: _**3306,33060**_
 
 At the end click the blue button _**Add Ingress Rules**_
 
