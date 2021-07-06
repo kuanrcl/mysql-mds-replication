@@ -101,7 +101,7 @@ Oracle Cloud Infrastructure Cloud (OCI) Shell is a web browser-based terminal ac
 ![](images/Lab2-13.png)
 
 ### **Step 2.13:**
-- Paste-in the following script:
+- Copy and paste-in the following script, using the GitHub code copy function (copy button appears on the left on mouse hover):
 ```
 #cloud-config
 # Source: https://cloudinit.readthedocs.io/en/latest/topics/examples.html#yaml-examples
