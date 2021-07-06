@@ -177,7 +177,7 @@ Click on the _**Cloud Shell**_ icon in the top right part of the screen.
 ### **Step 2.17:**
 - Once the Cloud shell comes up, familiarize with the commands. 
 On the right part of top bar, you have the buttons to _**reduce to icon**_, _**exapnd**_ and _**close**_ the cloud shell.
-On the left part of thop bar, you have the _**cloud shell menu**_. Feel free to adjust the _**font size**_ as per picture below.
+On the left part of top bar, you have the _**cloud shell menu**_. Feel free to adjust the _**font size**_ as per picture below.
 
 ![](images/Lab2-18.png)
 
