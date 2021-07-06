@@ -32,7 +32,7 @@ By executing the Labs, you will learn how to:
 
 ## Content
 
-[Get Started: Sign Up for your Oracle Cloud Free Tier](Lab0/README.md)
+[Get Started: Register your Oracle Cloud Free Tier](Lab0/README.md)
 
 - Create Your Free Trial Account
 - Sign in to Your Account
