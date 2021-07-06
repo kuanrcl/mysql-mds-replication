@@ -196,16 +196,16 @@ _**PLEASE NOTE**_: In this step we will connect  to the MySQL Replication Source
 
 - In order to connect to the Replication Source Instance using the _**Public IP Address**_, execute the following steps:
 
-1 - Rename the private key file and assign the privileges required by OCI
+a - Rename the private key file and assign the privileges required by OCI
 ```
 mv ssh-*.key replication-source.key
 chmod 600 replication-source.key
 ```
-2 - Connect to the _**MySQL Replication Source instance**_ over ssh, replacing the  _**Public IP Address**_ after the "@"
+b - Connect to the _**MySQL Replication Source instance**_ over ssh, replacing the  _**Public IP Address**_ after the "@"
 ```
 ssh -i replication-source.key opc@<source-instance-public-ip>
 ```
-3 - If prompted to accept fingerprints, enter _**yes**_
+c - If prompted to accept fingerprints, enter _**yes**_
 4 - Once successfully connected to the replication source instance, execute the following command:
 ```
 mysql -uroot -pOracle.123
